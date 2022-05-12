@@ -1,52 +1,51 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="/static/style.css">
-
-    <title>yolov5 object detection</title>
-  </head>
-  <body class="text-center">
-    <form class="form-signin" method=post enctype=multipart/form-data>
-        <img class="mb-4" src="/static/pytorch.png" alt="" width="72">
-        <h1 class="h3 mb-3 font-weight-normal">Upload any image</h1>
-        <input type="file" name="file" class="form-control-file" id="inputfile">
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
-        <p class="mt-5 mb-3 text-muted">Built using Pytorch & Flask</p>
-    </form>
-    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      $('#inputfile').bind('change', function() {
-          let fileSize = this.files[0].size/1024/1024; // this gives in MB
-          if (fileSize > 1) {
-            $("#inputfile").val(null);
-            alert('file is too big. images more than 1MB are not allowed')
-            return
-          }
-
-          let ext = $('#inputfile').val().split('.').pop().toLowerCase();
-          if($.inArray(ext, ['jpg','jpeg']) == -1) {
-            $("#inputfile").val(null);
-            alert('only jpeg/jpg files are allowed!');
-          }
-      });
-    </script>
-  </body>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Detection App Yolov5</title>
+  <meta charset='utf-8'>
+  <script src='../static/client.js'></script>
+  <title>PlanY</title>
+  <link rel="icon" href="../static/icon.png">
+  <link rel="Stylesheet" type="text/css" href="../static/utils/cropping-tool/croppie-style.css"></link>
+  <link rel='stylesheet' href='../static/style.css'>
+  <script src="../static/utils/cropping-tool/croppie.js"></script>
+  <script src="../static/utils/cropping-tool/cropperElement.js" defer></script>
+</head>
+<body>
+  <div>
+    <div class='center'>
+      <h2 class='title'></h2>
+      <p>
+        
+      </p>
+      <dialog id="result-modal"><img id="result-image" alt="" class="result-image" ></dialog>
+      <div class='content'>
+        <div class='no-display'>
+          <input id='file-input'
+          class='no-display'
+          type='file'
+          name='file'
+          accept='image/*'
+          onchange='showPicked(this)'>
+      </div>
+      
+      <button class='choose-file-button' type='button' onclick='showPicker()'>Load Image</button>
+      <div class='upload-label'>
+        <label id='upload-label'>No image chosen</label>
+      </div>
+      <div id="image" alt="image by Elena Joland"></div>
+      <div>
+        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+      </div>
+      <div class='analyze'>
+        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+      </div>
+      <div class='result-label'>
+        <label id='result-label' class='no-display'></label>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</body>
 </html>
