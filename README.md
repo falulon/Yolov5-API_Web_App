@@ -10,7 +10,7 @@ Simple app consisting of a form where you can upload an image, and see the infer
 visit http://localhost:5000/ in your browser
 
 ![image](https://user-images.githubusercontent.com/79255543/168185163-c87e4bcf-1d18-4164-a54e-e0c86a199eed.png)
-
+Image by Elena Joland (https://unsplash.com/@labf)
 
 ## Rest API
 Simple rest API exposing the model for consumption by another service. 
