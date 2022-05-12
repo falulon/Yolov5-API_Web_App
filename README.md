@@ -1,4 +1,4 @@
-# Yolov5 object detection model deployment using flask
+# YOLOv5 Object Detection model with Flask (Python / JS)
 based on : https://github.com/robmarkcole
            https://github.com/falulon/moles-classifier
            
@@ -42,13 +42,52 @@ The model inference results are returned as JSON consist of the result image and
 ```
 
 ## Docker
-The example dockerfile shows how to expose the rest API:
+The example dockerfile shows how to expose the rest API.
+You can test your changes locally by installing Docker and using the following command:
+
 ```
-# Build
-docker build -t yolov5 .
-# Run
-docker run -p 5000:5000 yolov5
+docker build -t moles-classifier . && docker run --rm -it -p 5000:5000 moles-classifier
 ```
+
+It will run a container and initiate server.py and serve app/view/index.html on your localhost:5000
+
+# You'd like to do the following: 
+
+1. Replace _custom.pt_ (YOLOv5 model) in /app/ with your YOLOv5 trained model. 
+2. Customize the UI of _app/view/index.html_
+                   and _app/static/style.css_
+
+3.  [Deploying to Heroku](https://github.com/falulon/moles-classifier/issues/1) 
+
+##### **A. Install Heroku, log in and make sure it is connected to your Github account**
+
+##### **B. Create a new pipeline**
+- choose the repo from github, connect and create a Pipeline.
+
+![image](https://user-images.githubusercontent.com/79255543/161379274-05585c2c-2e3b-4b68-9597-60f740f2957c.png)
+##### **C. Under Staging, New app, create new App.**
+
+![image](https://user-images.githubusercontent.com/79255543/161379308-6acfe51d-e2c9-4da3-b421-e193d9ad7ed4.png)
+##### **D. Edit App Settings**
+- Change the stack from heroku to container by running this command in your terminal:
+`heroku stack:set container --app my-classifier-app-name`
+– Enable Automatic deploys (still in App settings) 
+– Deploy
+
+![image](https://user-images.githubusercontent.com/79255543/161379353-f350c3fe-9651-4037-98c8-89027264e693.png)
+
+
+If there is some error, find it by running: 
+`heroku logs --tail`
+
+You may like to run also
+```
+heroku git:remote -a my-classifier-app-name
+heroku addons:add heroku-postgresql:hobby-dev --app my-classifier-app-name
+```
+
+### **The app is up and updates on every time you make some changes and push to Github.**
+
 
 ## reference
 - https://github.com/ultralytics/yolov5
