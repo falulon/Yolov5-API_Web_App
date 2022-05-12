@@ -1,31 +1,21 @@
 # Yolov5 object detection model deployment using flask
+based on : https://github.com/robmarkcole
+           https://github.com/falulon/moles-classifier
+           
 This repo contains example apps for exposing the [yolo5](https://github.com/ultralytics/yolov5) object detection model from [pytorch hub](https://pytorch.org/hub/ultralytics_yolov5/) via a [flask](https://flask.palletsprojects.com/en/1.1.x/) api/app.
 
 ## Web app
 Simple app consisting of a form where you can upload an image, and see the inference result of the model in the browser. Run:
 
-`$ python3 webapp.py --port 5000`
+visit http://localhost:5000/ in your browser
 
-then visit http://localhost:5000/ in your browser:
+![image](https://user-images.githubusercontent.com/79255543/168185163-c87e4bcf-1d18-4164-a54e-e0c86a199eed.png)
 
-<p align="center">
-<img src="https://github.com/robmarkcole/yolov5-flask/blob/master/docs/app_form.jpg" width="450">
-</p>
-
-<p align="center">
-<img src="https://github.com/robmarkcole/yolov5-flask/blob/master/docs/app_result.jpg" width="450">
-</p>
 
 ## Rest API
-Simple rest API exposing the model for consumption by another service. Run:
+Simple rest API exposing the model for consumption by another service. 
 
-`$ python3 restapi.py --port 5000`
-
-Then use [curl](https://curl.se/) to perform a request:
-
-`$ curl -X POST -F image=@tests/zidane.jpg 'http://localhost:5000/v1/object-detection/yolov5s'`
-
-The model inference results are returned:
+The model inference results are returned as JSON consist of the result image and xyxy boxes coordinations :
 
 ```
 [{'class': 0,
@@ -51,25 +41,17 @@ The model inference results are returned:
   'ymin': 429.2020568848}]
 ```
 
-An example python script to perform inference using [requests](https://docs.python-requests.org/en/master/) is given in `tests/test_request.py`
-
-## Run & Develop locally
-Run locally and dev:
-* `python3 -m venv venv`
-* `source venv/bin/activate`
-* `(venv) $ pip install -r requirements.txt`
-* `(venv) $ python3 webapp.py --port 5000`
-
 ## Docker
 The example dockerfile shows how to expose the rest API:
 ```
 # Build
-docker build -t yolov5-flask .
+docker build -t yolov5 .
 # Run
-docker run -p 5000:5000 yolov5-flask:latest
+docker run -p 5000:5000 yolov5
 ```
 
 ## reference
 - https://github.com/ultralytics/yolov5
-- https://github.com/jzhang533/yolov5-flask (this repo was forked from here)
+- https://github.com/jzhang533/yolov5-flask 
+- https://github.com/robmarkcole (this repo was forked from here)
 - https://github.com/avinassh/pytorch-flask-api-heroku
