@@ -1,13 +1,13 @@
-# YOLOv5 Object Detection model with Flask (Python / JS)
-based on : https://github.com/robmarkcole
+# YOLOv5 Object Detection model api/app with Flask (Python / JS)
+Based on : https://github.com/robmarkcole
            https://github.com/falulon/moles-classifier
            
-This repo contains example apps for exposing the [yolo5](https://github.com/ultralytics/yolov5) object detection model from [pytorch hub](https://pytorch.org/hub/ultralytics_yolov5/) via a [flask](https://flask.palletsprojects.com/en/1.1.x/) api/app.
+This repo contains example apps for exposing the [YOLOv5](https://github.com/ultralytics/yolov5) object detection model from [Pytorch hub](https://pytorch.org/hub/ultralytics_yolov5/) via a [Flask](https://flask.palletsprojects.com/en/1.1.x/) api/app.
 
 ## Web app
 Simple app consisting of a form where you can upload an image, and see the inference result of the model in the browser. Run:
 
-visit http://localhost:5000/ in your browser
+Visit http://localhost:5000/ in your browser
 
 ![image](https://user-images.githubusercontent.com/79255543/168185163-c87e4bcf-1d18-4164-a54e-e0c86a199eed.png)
 Image by Elena Joland (https://unsplash.com/@labf)
