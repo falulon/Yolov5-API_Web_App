@@ -53,7 +53,7 @@ It will run a container and initiate server.py and serve app/view/index.html on 
 
 # You'd like to do the following: 
 
-1. Replace _custom.pt_ (YOLOv5 model) in /app/ with your YOLOv5 trained model. 
+1. Replace _custom.pt_ (YOLOv5 model) in /app/ with your _best.pt_ trained model. 
 2. Customize the UI of _app/view/index.html_
                    and _app/static/style.css_
 
@@ -70,7 +70,7 @@ It will run a container and initiate server.py and serve app/view/index.html on 
 ![image](https://user-images.githubusercontent.com/79255543/161379308-6acfe51d-e2c9-4da3-b421-e193d9ad7ed4.png)
 ##### **D. Edit App Settings**
 - Change the stack from heroku to container by running this command in your terminal:
-`heroku stack:set container --app my-classifier-app-name`
+`heroku stack:set container --app my-detection-app-name`
 – Enable Automatic deploys (still in App settings) 
 – Deploy
 
@@ -82,8 +82,8 @@ If there is some error, find it by running:
 
 You may like to run also
 ```
-heroku git:remote -a my-classifier-app-name
-heroku addons:add heroku-postgresql:hobby-dev --app my-classifier-app-name
+heroku git:remote -a my-detection-app-name
+heroku addons:add heroku-postgresql:hobby-dev --app my-detection-app-name
 ```
 
 ### **The app is up and updates on every time you make some changes and push to Github.**
