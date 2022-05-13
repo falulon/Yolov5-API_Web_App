@@ -15,7 +15,7 @@ Image by Elena Joland (https://unsplash.com/@labf)
 ## Rest API
 Simple rest API exposing the model for consumption by another service. 
 
-The model inference results are returned as JSON consist of the result image and xyxy boxes coordinations :
+The model inference results are returned as JSON consisting the result image (base64) and xyxy boxes coordinations in the following format :
 
 ```
 [{'class': 0,
