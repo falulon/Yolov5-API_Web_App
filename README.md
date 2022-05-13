@@ -1,5 +1,5 @@
 # YOLOv5 Object Detection model api/app with Flask (Python / JS)
-Based on : https://github.com/robmarkcole
+Based on : https://github.com/ultralytics/yolov5/tree/master/utils/flask_rest_api
            https://github.com/falulon/moles-classifier
            
 This repo contains example apps for exposing the [YOLOv5](https://github.com/ultralytics/yolov5) object detection model from [Pytorch hub](https://pytorch.org/hub/ultralytics_yolov5/) via a [Flask](https://flask.palletsprojects.com/en/1.1.x/) api/app.
@@ -90,7 +90,4 @@ heroku addons:add heroku-postgresql:hobby-dev --app my-detection-app-name
 
 
 ## reference
-- https://github.com/ultralytics/yolov5
-- https://github.com/jzhang533/yolov5-flask 
-- https://github.com/robmarkcole (this repo was forked from here)
-- https://github.com/avinassh/pytorch-flask-api-heroku
+https://github.com/ultralytics/yolov5/tree/master/utils/flask_rest_api

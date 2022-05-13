@@ -1,7 +1,7 @@
 // disable selection in DOM
 const disableselect = (e) => false;  
 document.onselectstart = disableselect;  
-console.log("Based on https://github.com/robmarkcole + https://github.com/falulon/moles-classifier.")
+console.log("Based on https://github.com/ultralytics/yolov5/tree/master/utils/ + https://github.com/falulon/moles-classifier.")
 console.log("Background image by Elena Joland at unsplash.com ")
 
 
