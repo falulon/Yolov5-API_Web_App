@@ -4,6 +4,12 @@ Based on : https://github.com/ultralytics/yolov5/tree/master/utils/flask_rest_ap
            
 This repo contains example apps for exposing the [YOLOv5](https://github.com/ultralytics/yolov5) object detection model from [Pytorch hub](https://pytorch.org/hub/ultralytics_yolov5/) via a [Flask](https://flask.palletsprojects.com/en/1.1.x/) api/app.
 
+
+An Angular version of this project is available (check out my repos)
+
+## First, save your best YOLOv5 model
+Save your YOLOv5 model as custom.pt at the room folder.
+
 ## Web app
 Simple app consisting of a form where you can upload an image, and see the inference result of the model in the browser. Run:
 
